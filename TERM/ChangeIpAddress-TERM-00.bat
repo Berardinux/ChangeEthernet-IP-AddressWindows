@@ -2,7 +2,7 @@
 
 ::set eth=Ethernet
 rem Function to get the Ethernet interface name
-powershell -Command "Get-NetAdapter | Where-Object { $_.Name -like 'Ethernet*' -and $_.Status -eq 'Up' -and $_.MediaType -eq '802.3' } | Select-Object -First 1 -ExpandProperty Name" > iface.txt
+powershell -Command "Get-NetAdapter | Where-Object { $_.Name -like 'Ethernet*' } | Select-Object -First 1 -ExpandProperty Name" > iface.txt
 set /p eth=<iface.txt
 del iface.txt
 
